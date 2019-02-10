@@ -62,6 +62,25 @@ namespace Assignment2_S19
             foreach(int n in arr) {
                 Console.Write(n + " ");
             }
+
+		/*Mohammad Subhani's Self Reflections
+		 
+		 observations:
+
+		 for problem 3-- Balnaced Sums, test cases 3 and 4 are timing out in hackerrank, when I submitted my 
+		 code as file using only main method and moving the balanced sums logic to main there were no issues,
+		 but when seperate method balanced sums is used , then we need to use one more for loop for scanning elements
+		 when elements are scanned with the for loop and main logic moved to main test cases 3 and 4 are running properly.
+
+		Learnings:
+
+		solving these problems helped for better understanding of how programming langauge can be used to solve real world problems.
+
+		Recommendations:
+
+		please mention in the assignment whether Collections, LINQ can be used when we solve the problems in assignments,
+		as using collections & LINQ can simplify the code and logics to greater extent
+			 */
         }
 
         // Complete the rotLeft function below.
@@ -87,7 +106,7 @@ namespace Assignment2_S19
 				Console.WriteLine("An exception occured while computing rotLeft and the exception is {0}", ex.Message);
 			}
 			return temp_arr;  // returning the rotated array by d rotations
-		}
+		} //submitted by Mohammad Subhani
 
         // Complete the maximumToys function below.
         static int maximumToys(int[] prices, int marksbudget)
@@ -111,10 +130,10 @@ namespace Assignment2_S19
 				Console.WriteLine("An exception occured while computing maximumToys and the error message is {0}", ex.Message);
 			}
 			return max_toys;      // returning max_toys that can be purchased with marks budget
-		}
+		} //submitted by Mohammad Subhani
 
-        // Complete the balancedSums function below.
-        static string balancedSums(List<int> arr)
+		// Complete the balancedSums function below.
+		static string balancedSums(List<int> arr)
         {
             long rightsum = 0, leftsum = 0; //intialising leftsum and rightsum
             bool found = false;
@@ -186,11 +205,11 @@ namespace Assignment2_S19
 			}
 			return sortArray(misNumbersList.ToArray());    // converting list to array and calling sortArray method to return sorted array
 
-		}
+		} //submitted by Mohammad Subhani
 
 
-        // Complete the gradingStudents function below.
-        static int[] gradingStudents(int[] grades)
+		// Complete the gradingStudents function below.
+		static int[] gradingStudents(int[] grades)
         {
             try
             {
@@ -382,11 +401,10 @@ namespace Assignment2_S19
 				Console.WriteLine("An exception occured while executing sortArray and the error is {0}", ex.Message);
 			}
 			return arr;   // returning array after performing selection sort
-		}
+		}   // method for sorting the array -- submitted by Mohammad Subhani
 
 
-		#region
-		/*second approach for missing nummbers without using list.contains() method*/
+		#region 2nd approach for missing nummbers without using list.contains() method
 
 		//static int[] missingNumbers(int[] arr, int[] brr)
 		//{
