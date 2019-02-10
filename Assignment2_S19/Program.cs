@@ -216,5 +216,84 @@ namespace Assignment2_S19
 			return arr;   // returning array after performing selection sort
 		}
 
+
+		#region
+		/*second approach for missing nummbers without using list.contains() method*/
+
+		//static int[] missingNumbers(int[] arr, int[] brr)
+		//{
+		//	var watch = Stopwatch.StartNew();
+		//	List<int> missingnumberslist = new List<int>(); /*this list is used only to store missing numbers
+		//													as a dynamic collection is needed to store missing numbers*/
+		//	bool matched;
+		//	try
+		//	{
+		//		int[] afreq = calFrequency(arr);          /*calculates frequency of array, (i) will have value 
+		//													and (i+1) will have frequency of element at i */
+		//		int[] bfreq = calFrequency(brr);
+		//		for (int i = 0; (i + 1) < bfreq.Length; i += 2)     /*looping through original array b and checking whether
+		//															that element is present in missing array a*/
+		//		{
+		//			matched = false;
+		//			for (int j = 0; (j + 1) < afreq.Length; j += 2)  /*looping through a array for element at index and frequency comparison*/
+		//			{
+		//				if (bfreq[i] == afreq[j] && bfreq[i + 1] == afreq[j + 1])   /*checking whether element is present and frequency 
+		//																			is equal in both array a and b*/
+		//				{
+		//					matched = true;                        // if element is found and frequencies are equal then its match
+		//				}
+		//			}
+		//			if (!matched)
+		//				missingnumberslist.Add(bfreq[i]);       // if not match then adding it in missing numbers list
+		//		}
+
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		Console.WriteLine("An error occured while computing missingNumbers and the error message is {0}", ex.Message);
+		//	}
+		//	watch.Stop();
+		//	Console.WriteLine("Time Taken by missing numbers function is {0}",watch.ElapsedMilliseconds);
+		//	return sortArray(missingnumberslist.ToArray());
+		//}
+
+		//static int[] calFrequency(int[] ar)
+		//{
+		//	int count;
+		//	int[] freq = new int[ar.Length];  // freq array to set dummy frequency to all elements of ar array intially
+		//	List<int> arvalandfreq = new List<int>();  // this list will store value and frequency of that value next to each other
+		//	try
+		//	{
+		//		for (int i = 0; i < freq.Length; i++) //loop to assign dummy frequency for all elements intially
+		//		{
+		//			freq[i] = -1;
+		//		}
+		//		for (int i = 0; i < ar.Length; i++)  // taking each element 
+		//		{
+		//			count = 1;                      // every variable will have frequency >= 1
+		//			for (int j = i + 1; j < ar.Length; j++)  // comparing that element with all other remaining elements of array
+		//			{
+		//				if (ar[i] == ar[j])       // if element found assigning its frequency to 0 and increasing the count by 1
+		//				{
+		//					freq[j] = 0;
+		//					count++;
+		//				}
+		//			}
+		//			if (freq[i] != 0)     // if frequency!=0 adding the element and its frequency to list
+		//			{
+		//				arvalandfreq.Add(ar[i]);   //adding element
+		//				arvalandfreq.Add(count);   // adding frequency of that element
+		//			}
+		//		}
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		Console.WriteLine("An error occured while computing calFrequency and the error message is {0}", ex.Message);
+		//	}
+		//	return arvalandfreq.ToArray();  // converting the list to array and returning
+		//}
+
+		#endregion
+
 	}
 }
