@@ -116,8 +116,37 @@ namespace Assignment2_S19
         // Complete the balancedSums function below.
         static string balancedSums(List<int> arr)
         {
-            return "";
-        }
+            long rightsum = 0, leftsum = 0; //intialising leftsum and rightsum
+            bool found = false;
+            int length = arr.Count;
+            try
+            {
+                while (length > 0)   // calculating the leftsum and rightsum for all elements
+                {
+                    found = false;
+                    for (int j = 0; j < arr.Count; j++)  // for loop to calculate all the right side elements sum
+                    {
+                        rightsum += arr[j];
+                    }
+                    for (int k = 0; k < arr.Count; k++) // for loop for calculating left sum and then comparing with rightsum
+                    {
+                        rightsum -= arr[k];  // removing an element and then it will be added to leftsum  to balance the sum of left and right
+                        if (leftsum == rightsum) // comparing left sum and right sum and breaking from loop if such value is found
+                        {
+                            found = true;   // if such element is found
+                            break;
+                        }
+                        leftsum += arr[k];  // adding the element to leftsum
+                    }
+                    length--;  // decreasing the length for while condition
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An exception occured while computing balancedsums and the error is {0}", ex.Message);
+            }
+            return (found == true ? "YES" : "NO"); //condition expression using found variable to return yes or no
+        }// submitted by Saksham Rana
 
         // Complete the missingNumbers function below.
         static int[] missingNumbers(int[] arr, int[] brr)
@@ -160,11 +189,26 @@ namespace Assignment2_S19
 		}
 
 
-		// Complete the gradingStudents function below.
-		static int[] gradingStudents(int[] grades)
+        // Complete the gradingStudents function below.
+        static int[] gradingStudents(int[] grades)
         {
-            return new int[] { };
-        }
+            try
+            {
+                for (int i = 0; i < grades.Length; i++)   // loop to iterate through all the grades
+                {
+                    if (grades[i] > 37 && grades[i] % 5 > 2) /*checking whether grade is atleast 38 and whether grades 
+																deserves for rounding off nearest multiple of 5*/
+                    {
+                        grades[i] += (5 - (grades[i] % 5));   // if yes rounding off the grade to nearest multiple of 5
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occured while computing gardingStudents and the error is {0}", ex.Message);
+            }
+            return grades;
+        }//submitted by saksham rana
 
         // Complete the findMedian function below.
         static int findMedian(int[] arr)
