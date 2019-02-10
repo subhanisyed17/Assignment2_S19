@@ -213,22 +213,146 @@ namespace Assignment2_S19
         // Complete the findMedian function below.
         static int findMedian(int[] arr)
         {
-            return 0;
-        }
+            try
+            {
+                int result = 0; //variable to store the result
+                int median_index; /*variable to store median index*/
+                int temp;/*temporary variable used for swap operation during sorting*/
+                median_index = arr.Length / 2; /* As the array length is always odd,median_index will be length of array divided by 2*/
+                for (int i = 0; i < arr.Length - 1; i++) //for loop for selection sort
+                {
+
+
+                    for (int j = i + 1; j < arr.Length; j++) // inner for loop to iterate from (i+1)th element 
+                    {
+                        if (arr[j] < arr[i])// swap operation to bring lowest number to starting position
+                        {
+                            temp = arr[i];
+                            arr[i] = arr[j];
+                            arr[j] = temp;
+                        } //edof if
+
+
+
+
+                    }//edof for with iteration 
+
+
+                    if (i == median_index)// sorting the array only till the median index, to optimize the code.
+                    {
+                        result = arr[i];
+                    }//edof if
+
+                }//edof for with iteration variable i
+
+
+                return result;
+
+            } //edof try
+            catch
+            {
+                Console.WriteLine("error occured in findMedian function");
+                return 0;
+            }//edof catch
+
+
+        }//edof findMedian function-submitted by Indra Reddy
+
 
         // Complete the closestNumbers function below.
         static int[] closestNumbers(int[] arr)
         {
-            return new int[] { };
-        }
+
+            try
+            {
+                int[] sorted_arr = sortArray(arr); //calling function to sort the elements
+
+                int min_diff = sorted_arr[1] - sorted_arr[0]; //variable to store minimum difference between the elements in array
+                List<int> result_list = new List<int>() { sorted_arr[0], sorted_arr[1] }; //list to store the result variables
+
+                for (int i = 1; i < (sorted_arr.Length - 1); i++) //for loop to iterate through 0th index till last but one index
+                {
+                    if (min_diff > sorted_arr[i + 1] - sorted_arr[i]) /*condition to check if difference between adjacent numbers 
+                                                                          is less than the min_diff
+                                                                          if condition is met, clear the list and add both adjacent numbers*/
+                    {
+                        result_list.Clear();
+                        result_list.Add(sorted_arr[i]);
+                        result_list.Add(sorted_arr[i + 1]);
+                        min_diff = sorted_arr[i + 1] - sorted_arr[i];// set new value to min_diff
+
+                    }//edof if 
+                    else if (min_diff == sorted_arr[i + 1] - sorted_arr[i]) /* condition to check if difference between adjacent numbers
+                                                                                    is equal to min_diff
+                                                                                    if condition is met,append adjacent numbers to list*/
+                    {
+                        result_list.Add(sorted_arr[i]);
+                        result_list.Add(sorted_arr[i + 1]);
+
+                    }//edof else if
+
+                }//edof for
+
+
+                return result_list.ToArray();//converting list to array and returning
+
+
+            }//edof try
+            catch
+            {
+                Console.WriteLine("Error occured while finding closest numbers");
+                return new int[] { };
+            }//edof catch
+
+
+        }//edof ClosestNumbers function-Submitted by Indra Reddy
 
         // Complete the dayOfProgrammer function below.
         static string dayOfProgrammer(int year)
         {
-            return "";
-        }
+            string result; //variable to store the result date
+            try
+            {
+                if (year > 1918) //condition for Gregorian calendar system
+                {
+                    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) //Checking if the year is a leap year
+                    {
+                        result = "12.09." + year.ToString(); //result if if its loop year
+                    }//edof leap year if
+                    else
+                    {
+                        result = "13.09." + year.ToString(); //result if not a leap year
+                    }//edof if
+                }//edof if year condition
 
-		static int[] sortArray(int[] arr)
+                else if (year < 1917)// condition for Julian calendar
+                {
+                    if (year % 4 == 0) // condition for leap year
+                    {
+                        result = "12.09." + year.ToString(); //Day of the programmer if year selected is leap year
+                    }//edof leap year if
+                    else
+                    {
+                        result = "13.09." + year.ToString();  //Day of the programmer if year selected is not an leap year
+                    }//edof if
+                }//edof if <1918
+
+                else
+                {
+                    result = "26.09.1918"; // Day of the programmer if year selected is 1918
+                }//edof else
+            }
+            catch
+            {
+                Console.WriteLine("Exception occured in dayofProgrammer");
+                return "error";
+            }//edof catch
+
+
+            return result;
+        }//edof method Day of programmer-submitted by Indra Reddy
+
+        static int[] sortArray(int[] arr)
 		{
 			int position, temp;  // intialising position to hold min value index and temp to swap values
 			try
