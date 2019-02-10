@@ -63,24 +63,6 @@ namespace Assignment2_S19
                 Console.Write(n + " ");
             }
 
-		/*Mohammad Subhani's Self Reflections
-		 
-		 observations:
-
-		 for problem 3-- Balnaced Sums, test cases 3 and 4 are timing out in hackerrank, when I submitted my 
-		 code as file using only main method and moving the balanced sums logic to main there were no issues,
-		 but when seperate method balanced sums is used , then we need to use one more for loop for scanning elements
-		 when elements are scanned with the for loop and main logic moved to main test cases 3 and 4 are running properly.
-
-		Learnings:
-
-		solving these problems helped for better understanding of how programming langauge can be used to solve real world problems.
-
-		Recommendations:
-
-		please mention in the assignment whether Collections, LINQ can be used when we solve the problems in assignments,
-		as using collections & LINQ can simplify the code and logics to greater extent
-			 */
         }
 
         // Complete the rotLeft function below.
